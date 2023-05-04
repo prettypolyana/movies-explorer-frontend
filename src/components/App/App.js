@@ -16,7 +16,6 @@ import './App.css';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
 
@@ -25,21 +24,17 @@ function App() {
       name: 'Виталий',
       email: 'pochta@yandex.ru',
     });
-    setIsLoggedIn(true);
     navigate('/');
   };
 
   const handleLogout = () => {
     setCurrentUser(null);
-    setIsLoggedIn(false);
     navigate('/');
   }
 
   const handleRegister= () => {
     navigate('/signin');
   };
-
-
 
   return (
         <CurrentUserContext.Provider value={currentUser}>
