@@ -1,0 +1,56 @@
+.search {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 70px 70px 118px;
+}
+
+.search__form {
+    border-bottom: 1px solid #E8E8E8;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 13px;
+    align-items: center;
+}
+
+.search__input {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 34px;
+    height: 34px;
+    color: #A0A0A0;
+    padding: 0;
+    border: none;
+}
+
+.search__button {
+    display: block;
+    box-sizing: border-box;
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: url('../../images/find.svg') no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+    .search {
+        max-width: 768px;
+        padding: 80px 30px 130px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .search__form  {
+        padding-bottom: 9px;
+    }
+
+    .search {
+        max-width: 320px;
+        padding: 84px 14px 90px;
+    }
+
+    .search__input {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
