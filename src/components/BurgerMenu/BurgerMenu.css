@@ -159,6 +159,12 @@
     }
 }
 
+@media screen and (max-width: 520px) {
+    .burger__content {
+        max-width: 100%;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .burger__content {
         padding: 144px 0 46px;

@@ -19,7 +19,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 66px;
-    gap: 270px;
+    gap: 49px;
 }
 
 .student__name {
@@ -50,6 +50,7 @@
     color: #000000;
     margin: 0;
     padding-top: 26px;
+    max-width: 600px;
 }
 
 .student__link {
@@ -77,14 +78,11 @@
         padding: 90px 50px;
     }
 
-    .student__profile {
-        gap: 49px;
-    }
-
     .student__info {
         font-size: 12px;
         line-height: 18px;
         padding-top: 20px;
+        min-width: 134px;
     }
 
     .student__photo {
@@ -108,6 +106,17 @@
     }
 }
 
+@media screen and (max-width: 540px) {
+    .student__profile {
+        flex-direction: column-reverse;
+        margin-top: 60px;
+        gap: 40px;
+    }
+    .student__photo {
+        align-self: center;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .student {
         padding: 70px 14px;
@@ -124,15 +133,12 @@
     }
 
     .student__profile {
-        flex-direction: column-reverse;
         margin-top: 60px;
-        gap: 0;
     }
 
     .student__photo {
         width: 292px;
         height: 352px;
-        margin-bottom: 40px;
     }
 
     .student__name {
