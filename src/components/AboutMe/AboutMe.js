@@ -6,7 +6,7 @@ function AboutMe() {
         <section className="student">
             <h2 className="student__text">Студент</h2>
             <div className="student__profile">
-                <div className="students__texts">
+                <div className="student__texts">
                     <h2 className="student__name">Полина</h2>
                     <p className="student__job">
                         Фронтенд-разработчик, 23 года

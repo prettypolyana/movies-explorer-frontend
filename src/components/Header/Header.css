@@ -102,6 +102,10 @@
     justify-content: center;
 }
 
+.header__entrance-buttons-item:hover {
+    opacity: 0.8;
+}
+
 @media screen and (max-width: 768px) {
     .header {
         padding: 18px 30px;

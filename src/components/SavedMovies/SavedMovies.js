@@ -37,14 +37,14 @@ const movies = [
 
 function SavedMovies() {
     return (
-        <>
+        <div className="movies">
             <Header />
             <main className="saved-movies"> 
                 <SearchForm />
                 <MoviesCardList movies={movies} />
             </main>
             <Footer />
-        </>
+        </div>
     );
 }
 

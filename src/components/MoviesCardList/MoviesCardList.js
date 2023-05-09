@@ -5,8 +5,8 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 
 function MoviesCardList({movies}) {
     return (
-        <section className="movies">
-            <ul className="movies__list">
+        <section className="movies-cards">
+            <ul className="movies-cards__list">
                 {
                     movies.map((movie) => (
                         <MoviesCard poster={movie.poster} title={movie.title} duration={movie.duration} liked={movie.liked} saved={movie.saved}/>

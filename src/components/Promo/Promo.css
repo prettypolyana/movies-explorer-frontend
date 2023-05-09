@@ -1,4 +1,4 @@
-.promo__page {
+.promo {
     min-height: 493px;
     align-items: center;
     background: #F5F5F5;
@@ -20,7 +20,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .promo__page {
+    .promo {
         margin: 20px 20px 0;
       }
 
@@ -31,8 +31,8 @@
     }
 }
 
-@media screen and (max-width: 320px) {
-    .promo__page {
+@media screen and (max-width: 700px) {
+    .promo {
         margin: 14px;
       }
 

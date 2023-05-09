@@ -97,15 +97,15 @@ const movies = [
 
 function Movies() {
     return (
-        <>
+        <div className="page">
             <Header />
-            <main> 
+            <main className="movies"> 
                 <SearchForm />
                 <MoviesCardList movies={movies} />
+                <button className="movies__more">Ещё</button>
             </main>
-            <button className="movies__more">Ещё</button>
             <Footer />
-        </>
+        </div>
     );
 };
 
