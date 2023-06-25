@@ -95,6 +95,11 @@
     cursor: pointer;
 }
 
+.auth-form__button_disabled {
+    background-color: #d1cece;
+    pointer-events: none;
+}
+
 .auth-form__subtext {
     font-style: normal;
     font-weight: 400;

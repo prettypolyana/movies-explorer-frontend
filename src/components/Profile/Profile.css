@@ -115,6 +115,10 @@
     color: #C2C2C2;
 }
 
+.profile__button-save_disabled:hover {
+    opacity: 1;
+}
+
 .profile__button-edit {
     border: none;
     background: none;

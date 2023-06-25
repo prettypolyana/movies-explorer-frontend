@@ -3,7 +3,7 @@ import './AuthForm.css'
 import '../App/App.css';
 import logo from '../../images/logo-header.svg';
 
-function AuthForm({title, children, onSubmit, buttonText, formSubtext, formSublink, formSublinkText}) {
+function AuthForm({title, children, onSubmit, buttonText, formSubtext, formSublink, formSublinkText, isValid}) {
     return (
         <section className="auth-form">
             <img className="auth-form__logo" src={logo} alt="Логотип" />
@@ -13,7 +13,7 @@ function AuthForm({title, children, onSubmit, buttonText, formSubtext, formSubli
                     {children}
                 </div>
                 <div className="auth-form__actions">
-                    <button className="auth-form__button auth-form__button-help">{buttonText}</button>
+                    <button className={`auth-form__button ${isValid ? '' : 'auth-form__button_disabled'} ` } disabled={!isValid}>{buttonText}</button>
                     <p className="auth-form__subtext">
                         {formSubtext}
                         <Link className="auth-form__link" to={formSublink}>{formSublinkText}</Link>
