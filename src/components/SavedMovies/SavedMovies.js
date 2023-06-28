@@ -19,7 +19,8 @@ function SavedMovies({loggedIn, movies, initialSearch, initialOnlyShortFilms, is
                   initialSearch={initialSearch}
                   initialOnlyShortFilms={initialOnlyShortFilms}
                   onOnlyShortFilmsChanged={onOnlyShortFilmsChanged}
-                  isMoviesNotFound={movies.length === 0}/>
+                  isMoviesNotFound={movies.length === 0}
+                  allowEmpty={true}/>
                 {
                     isLoading ? <Preloader /> : <MoviesCardList movies={movies} onUnlike={onUnlike} isSaved={true} />
                 }

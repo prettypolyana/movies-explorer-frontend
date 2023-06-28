@@ -18,7 +18,8 @@ function Movies({loggedIn, movies, initialSearch, initialOnlyShortFilms, isMoreM
                     initialSearch={initialSearch}
                     initialOnlyShortFilms={initialOnlyShortFilms}
                     onOnlyShortFilmsChanged={onOnlyShortFilmsChanged}
-                    isMoviesNotFound={movies.length === 0}/>
+                    isMoviesNotFound={movies.length === 0}
+                    allowEmpty={false}/>
                     {
                         isLoading ? <Preloader /> : <MoviesCardList movies={movies} onLike={onLike} onUnlike={onUnlike} />
                     }

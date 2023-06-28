@@ -119,7 +119,7 @@ function App() {
     const filterSavedMovies = (movies) => {
       setSavedMoviesToShowCount(getMoviesToShowCount(windowWidth));
       return movies.filter((movie) => {
-        return (filterSavedMoviesSearchInput !== '' && (movie.nameRU.toLowerCase().includes(filterSavedMoviesSearchInput) || movie.nameEN.toLowerCase().includes(filterSavedMoviesSearchInput)))
+        return (filterSavedMoviesSearchInput === '' || (movie.nameRU.toLowerCase().includes(filterSavedMoviesSearchInput) || movie.nameEN.toLowerCase().includes(filterSavedMoviesSearchInput)))
           && (! filterSavedMoviesOnlyShortFilms || movie.duration <= 40)
       });
     };

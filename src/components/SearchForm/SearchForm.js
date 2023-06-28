@@ -6,7 +6,7 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import {useFormWithValidation} from '../../utils/hooks';
 import {SEARCH_INPUT_EMPTY, MOVIES_NOT_FOUND} from '../../utils/constants';
 
-function SearchForm({initialSearch, initialOnlyShortFilms, onSearchSubmit, onOnlyShortFilmsChanged, isMoviesNotFound}) {
+function SearchForm({initialSearch, initialOnlyShortFilms, onSearchSubmit, onOnlyShortFilmsChanged, isMoviesNotFound, allowEmpty}) {
     const { values, isValid, handleChange, resetForm } = useFormWithValidation();
 
     const [showError, setShowError] = useState(false);
@@ -15,8 +15,10 @@ function SearchForm({initialSearch, initialOnlyShortFilms, onSearchSubmit, onOnl
     useEffect(() => {
         if (initialSearch) {
             resetForm({search_input: initialSearch}, {}, true);
+        } else {
+            resetForm({}, {}, allowEmpty);
         }
-    }, [initialSearch, resetForm]);
+    }, [initialSearch, resetForm, allowEmpty]);
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -43,7 +45,7 @@ function SearchForm({initialSearch, initialOnlyShortFilms, onSearchSubmit, onOnl
         <section className="search">
             <form onSubmit={onFormSubmit}>
                 <fieldset className="search__form">
-                    <input name="search_input" minLength="1" required className="search__input" placeholder="Фильм" value={values.search_input || ''} onChange={handleChange} />
+                    <input name="search_input" minLength="1" required={! allowEmpty} className="search__input" placeholder="Фильм" value={values.search_input || ''} onChange={handleChange} />
                     <button className="search__button" />
                 </fieldset>
                 {
