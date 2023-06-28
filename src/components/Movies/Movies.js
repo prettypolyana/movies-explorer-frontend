@@ -8,12 +8,11 @@ import Footer from '../Footer/Footer';
 import '../Movies/Movies.css';
 import Preloader from '../Preloader/Preloader';
 
-
 function Movies({loggedIn, movies, initialSearch, initialOnlyShortFilms, isMoreMoviesAvailable, isLoading, onMoreButtonClick, onSearchSubmit, onOnlyShortFilmsChanged, onLike, onUnlike}) {
   return (
-        <>
+        <div className="page">
             <Header loggedIn={loggedIn} />
-            <main>
+            <main className="movies">
                 <SearchForm
                     onSearchSubmit={onSearchSubmit}
                     initialSearch={initialSearch}
@@ -28,7 +27,7 @@ function Movies({loggedIn, movies, initialSearch, initialOnlyShortFilms, isMoreM
                 isMoreMoviesAvailable ? <button className="movies__more" onClick={onMoreButtonClick}>Ещё</button> : ''
             }
             <Footer />
-        </>
+        </div>
     );
 }
 

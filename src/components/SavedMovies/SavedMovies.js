@@ -11,7 +11,7 @@ import Preloader from "../Preloader/Preloader";
 
 function SavedMovies({loggedIn, movies, initialSearch, initialOnlyShortFilms, isMoreMoviesAvailable, isLoading, onMoreButtonClick, onSearchSubmit, onOnlyShortFilmsChanged, onUnlike}) {
     return (
-        <>
+        <div className="page">
             <Header loggedIn={loggedIn} />
             <main className="saved-movies">
                 <SearchForm
@@ -28,7 +28,7 @@ function SavedMovies({loggedIn, movies, initialSearch, initialOnlyShortFilms, is
                 isMoreMoviesAvailable ? <button className="movies__more" onClick={onMoreButtonClick}>Ещё</button> : ''
             }
             <Footer />
-        </>
+        </div>
     );
 }
 

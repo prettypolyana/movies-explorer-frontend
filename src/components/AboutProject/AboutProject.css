@@ -124,11 +124,11 @@
     }
 
     .project__timeline {
-        grid-template-columns: 140px 1fr;
+        grid-template-columns: 1fr 1.85fr;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 380px) {
     .project {
         padding: 56px 18px 70px;
     }
