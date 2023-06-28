@@ -6,7 +6,9 @@ import logo from '../../images/logo-header.svg';
 function AuthForm({title, children, onSubmit, buttonText, formSubtext, formSublink, formSublinkText, isValid}) {
     return (
         <section className="auth-form">
-            <img className="auth-form__logo" src={logo} alt="Логотип" />
+            <Link to="/" className="header__logo">
+                <img className="auth-form__logo" src={logo} alt="Логотип" />
+            </Link>
             <h1 className="auth-form__title">{title}</h1>
             <form className="auth-form__form-container" onSubmit={onSubmit}>
                 <div className="auth-form__fields">
