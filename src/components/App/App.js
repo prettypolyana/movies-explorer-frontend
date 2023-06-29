@@ -19,6 +19,7 @@ import {CurrentUserContext} from '../../contexts/CurrentUserContext';
 
 import './App.css';
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import NotProtectedRoute from '../NotProtectedRoute/NotProtectedRoute';
 
 function App() {
   const navigate = useNavigate();
@@ -365,8 +366,24 @@ function App() {
                         onSignOut={handleSignOut}
                     />}
             />
-            <Route path="/signin" element={<Login onLogin={handleLogin} />} />
-            <Route path="/signup" element={<Register onRegister={handleRegister} />}/>
+            <Route
+                path="/signin"
+                element={
+                    <NotProtectedRoute
+                        component={Login}
+                        loggedIn={loggedIn}
+                        onLogin={handleLogin}
+                    />}
+            />
+            <Route
+                path="/signup"
+                element={
+                    <NotProtectedRoute
+                        component={Register}
+                        loggedIn={loggedIn}
+                        onLogin={handleRegister}
+                    />}
+            />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </CurrentUserContext.Provider>
