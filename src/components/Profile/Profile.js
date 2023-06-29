@@ -16,6 +16,7 @@ function Profile({loggedIn, onProfileEdit, onSignOut}) {
 
     const [editing, setEditing] = useState(false);
     const [showError, setShowError] = useState(false);
+    const [canSave, setCanSave] = useState(false);
 
     useEffect(() => {
         resetForm({
@@ -28,8 +29,15 @@ function Profile({loggedIn, onProfileEdit, onSignOut}) {
         setEditing(true);
     };
 
+    useEffect(() => {
+        setCanSave(currentUserContext && (currentUserContext.name !== values.name || currentUserContext.email !== values.email));
+    }, [values, currentUserContext]);
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (! canSave) {
+            return;
+        }
         onProfileEdit(values.name, values.email)
             .then(() => {
                 setEditing(false);
@@ -70,7 +78,7 @@ function Profile({loggedIn, onProfileEdit, onSignOut}) {
                             ? (
                                 <div className="profile__actions">
                                     <p className="profile__error">{showError ? PROFILE_EDIT_ERROR : ''}</p>
-                                    <button type="submit" className={`profile__button-save ${isValid ? '' : 'profile__button-save_disabled'}`} disabled={!isValid}>Сохранить</button>
+                                    <button type="submit" className={`profile__button-save ${isValid && canSave ? '' : 'profile__button-save_disabled'}`} disabled={!isValid || !canSave}>Сохранить</button>
                                 </div>
                             ) : (
                                 <div className="profile__actions">
