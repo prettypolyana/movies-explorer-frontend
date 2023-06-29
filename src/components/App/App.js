@@ -13,7 +13,17 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import {mainApi} from '../../utils/MainApi';
 import {moviesApi} from '../../utils/MoviesApi';
 
-import {MOVIES_URL} from '../../utils/constants';
+import {
+  MOVIES_URL,
+  MOVIE_SHORT_DURATION,
+  LARGE_SCREEN_BREAKPOINT,
+  MEDIUM_SCEEEN_BREAKPOINT,
+  MOVIES_TO_SHOW_COUNT_LARGE_SCREEN,
+  MOVIES_TO_SHOW_COUNT_MEDIUM_SCREEN,
+  MOVIES_TO_SHOW_COUNT_SMALL_SCREEN,
+  MOVIES_TO_ADD_COUNT_LARGE_SCREEN,
+  MOVIES_TO_ADD_COUNT_MEDIUM_SCREEN
+} from '../../utils/constants';
 
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
 
@@ -25,20 +35,20 @@ function App() {
   const navigate = useNavigate();
 
   const getMoviesToShowCount = (windowWidth) => {
-    if (windowWidth > 1200) {
-      return 12;
-    } else if (windowWidth > 767) {
-      return 8;
+    if (windowWidth > LARGE_SCREEN_BREAKPOINT) {
+      return MOVIES_TO_SHOW_COUNT_LARGE_SCREEN;
+    } else if (windowWidth > MEDIUM_SCEEEN_BREAKPOINT) {
+      return MOVIES_TO_SHOW_COUNT_MEDIUM_SCREEN;
     } else {
-      return 5;
+      return MOVIES_TO_SHOW_COUNT_SMALL_SCREEN;
     }
   }
 
   const getMoviesToAddCount = (windowWidth) => {
-    if (windowWidth > 1200) {
-      return 3;
+    if (windowWidth > LARGE_SCREEN_BREAKPOINT) {
+      return MOVIES_TO_ADD_COUNT_LARGE_SCREEN;
     } else {
-      return 2;
+      return MOVIES_TO_ADD_COUNT_MEDIUM_SCREEN;
     }
   }
 
@@ -109,7 +119,7 @@ function App() {
       setMoviesToShowCount(getMoviesToShowCount(windowWidth));
       return movies.filter((movie) => {
         return (filterSearchInput !== '' && (movie.nameRU.toLowerCase().includes(filterSearchInput) || movie.nameEN.toLowerCase().includes(filterSearchInput)))
-            && (! filterOnlyShortFilms || movie.duration <= 40)
+            && (! filterOnlyShortFilms || movie.duration <= MOVIE_SHORT_DURATION)
       });
     };
 
@@ -121,7 +131,7 @@ function App() {
       setSavedMoviesToShowCount(getMoviesToShowCount(windowWidth));
       return movies.filter((movie) => {
         return (filterSavedMoviesSearchInput === '' || (movie.nameRU.toLowerCase().includes(filterSavedMoviesSearchInput) || movie.nameEN.toLowerCase().includes(filterSavedMoviesSearchInput)))
-          && (! filterSavedMoviesOnlyShortFilms || movie.duration <= 40)
+          && (! filterSavedMoviesOnlyShortFilms || movie.duration <= MOVIE_SHORT_DURATION)
       });
     };
 

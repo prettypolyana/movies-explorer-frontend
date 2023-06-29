@@ -11,6 +11,16 @@ export const messages = {
   NOTHING_FOUND_ERROR: "Ничего не найдено",
 };
 
+export const MOVIE_SHORT_DURATION = 40;
+
+export const LARGE_SCREEN_BREAKPOINT = 1200;
+export const MEDIUM_SCEEEN_BREAKPOINT = 767;
+export const MOVIES_TO_SHOW_COUNT_LARGE_SCREEN = 12;
+export const MOVIES_TO_SHOW_COUNT_MEDIUM_SCREEN = 8;
+export const MOVIES_TO_SHOW_COUNT_SMALL_SCREEN = 5;
+export const MOVIES_TO_ADD_COUNT_LARGE_SCREEN = 3;
+export const MOVIES_TO_ADD_COUNT_MEDIUM_SCREEN = 2;
+
 export const paths = {
   main: "/",
   movies: "/movies",
