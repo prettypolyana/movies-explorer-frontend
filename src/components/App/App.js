@@ -92,8 +92,10 @@ function App() {
     setFilterSavedMoviesSearchInput('');
     setFilterOnlyShortFilms(false);
     setFilterSavedMoviesOnlyShortFilms(false);
+    setAllMovies([]);
     localStorage.removeItem('search_input');
     localStorage.removeItem('is_only_short_films');
+    localStorage.removeItem('movies');
   }
 
   const token = localStorage.getItem('jwt');
@@ -326,6 +328,11 @@ function App() {
       });
   }
 
+  const handleSavedMoviesLeave = () => {
+    setFilterSavedMoviesSearchInput('');
+    setFilterSavedMoviesOnlyShortFilms(false);
+  }
+
   return (
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
@@ -358,12 +365,11 @@ function App() {
                         isLoading={isSavedMoviesLoading}
                         movies={shownSavedMovies}
                         isMoreMoviesAvailable={isMoreSavedMoviesAvailable}
-                        initialSearch={filterSavedMoviesSearchInput}
-                        initialOnlyShortFilms={filterSavedMoviesOnlyShortFilms}
                         onSearchSubmit={handleSavedMoviesSearchSubmit}
                         onOnlyShortFilmsChanged={handleSavedMoviesOnlyShortFilmsChanged}
                         onMoreButtonClick={handleSavedMoviesMoreButtonClick}
                         onUnlike={handleMovieUnlike}
+                        onLeave={handleSavedMoviesLeave}
                     />}
             />
             <Route
