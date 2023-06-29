@@ -68,7 +68,7 @@ function Profile({loggedIn, onProfileEdit, onSignOut}) {
                                 <p className="profile__item-label">E-mail</p>
                                 {
                                     editing
-                                    ? <input type="email" name="email" className="profile__input profile__border" required value={values.email || ''} placeholder="E-mail" onChange={handleChange} />
+                                    ? <input type="text" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$" name="email" className="profile__input profile__border" required value={values.email || ''} placeholder="E-mail" onChange={handleChange} />
                                     : <p className="profile__item-value">{currentUserContext?.email || ''}</p>
                                 }
                             </div>

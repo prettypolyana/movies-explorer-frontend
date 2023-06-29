@@ -397,7 +397,7 @@ function App() {
                     <NotProtectedRoute
                         component={Register}
                         loggedIn={loggedIn}
-                        onLogin={handleRegister}
+                        onRegister={handleRegister}
                     />}
             />
             <Route path="*" element={<PageNotFound />} />
@@ -407,5 +407,3 @@ function App() {
 }
 
 export default App;
-
-

@@ -28,7 +28,7 @@ function Register({onRegister}) {
             </fieldset>
             <fieldset className="auth-form__input-field">
                 <label htmlFor="email" className="auth-form__input-label">E-mail</label>
-                <input type="email" name="email" className={`auth-form__input ${errors.email ? 'auth-form__input_invalid' : ''}`} required onChange={handleChange}/>
+                <input type="text" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$" name="email" className={`auth-form__input ${errors.email ? 'auth-form__input_invalid' : ''}`} required onChange={handleChange}/>
                 <span className="auth-form__input-error">{errors.email}</span>
             </fieldset>
             <fieldset className="auth-form__input-field">
