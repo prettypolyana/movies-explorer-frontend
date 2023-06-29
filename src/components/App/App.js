@@ -22,7 +22,8 @@ import {
   MOVIES_TO_SHOW_COUNT_MEDIUM_SCREEN,
   MOVIES_TO_SHOW_COUNT_SMALL_SCREEN,
   MOVIES_TO_ADD_COUNT_LARGE_SCREEN,
-  MOVIES_TO_ADD_COUNT_MEDIUM_SCREEN
+  MOVIES_TO_ADD_COUNT_MEDIUM_SCREEN,
+  messages
 } from '../../utils/constants';
 
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
@@ -75,6 +76,8 @@ function App() {
   const [savedMoviesToAddCount, setSavedMoviesToAddCount] = useState(getMoviesToAddCount(windowWidth));
   const shownSavedMovies = filteredSavedMovies.slice(0, savedMoviesToShowCount);
   const isMoreSavedMoviesAvailable = filteredSavedMovies.length > savedMoviesToShowCount;
+
+  const [authFormErrorMessage, setAuthFormErrorMessage] = useState('');
 
   const moviesWithLiked = shownMovies.map((movie) => {
     movie.liked = false;
@@ -219,16 +222,19 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+          setAuthFormErrorMessage(messages.AUTH_ERROR);
         });
   };
 
   const handleRegister = (name, email, password) => {
+    setAuthFormErrorMessage('');
     mainApi.signUp(name, email, password)
         .then((res) => {
           handleLogin(email, password);
         })
         .catch((err) => {
           console.log(err);
+          setAuthFormErrorMessage(messages.AUTH_ERROR);
         });
   };
 
@@ -274,6 +280,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
+          setIsLoading(false);
         });
     }
   }
@@ -292,6 +299,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+        setIsSavedMoviesLoading(false);
       });
   }
 
@@ -331,6 +339,10 @@ function App() {
   const handleSavedMoviesLeave = () => {
     setFilterSavedMoviesSearchInput('');
     setFilterSavedMoviesOnlyShortFilms(false);
+  }
+
+  const handleAuthFormLeave = () => {
+    setAuthFormErrorMessage('');
   }
 
   return (
@@ -389,6 +401,8 @@ function App() {
                         component={Login}
                         loggedIn={loggedIn}
                         onLogin={handleLogin}
+                        errorMessage={authFormErrorMessage}
+                        onLeave={handleAuthFormLeave}
                     />}
             />
             <Route
@@ -398,6 +412,8 @@ function App() {
                         component={Register}
                         loggedIn={loggedIn}
                         onRegister={handleRegister}
+                        errorMessage={authFormErrorMessage}
+                        onLeave={handleAuthFormLeave}
                     />}
             />
             <Route path="*" element={<PageNotFound />} />

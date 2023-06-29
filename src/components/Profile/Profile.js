@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
-import {PROFILE_EDIT_ERROR} from '../../utils/constants';
+import {PROFILE_EDIT_ERROR, PROFILE_EDIT_SUCCESS} from '../../utils/constants';
 
 import './Profile.css'
 import '../App/App.css';
@@ -9,13 +9,14 @@ import '../App/App.css';
 import Header from '../Header/Header';
 import {useFormWithValidation} from "../../utils/hooks";
 
-function Profile({loggedIn, onProfileEdit, onSignOut}) {
+function Profile({loggedIn, onProfileEdit, onSignOut, errorMessage, successMessage}) {
     const currentUserContext = useContext(CurrentUserContext);
 
     const { values, isValid, handleChange, resetForm } = useFormWithValidation();
 
     const [editing, setEditing] = useState(false);
     const [showError, setShowError] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
     const [canSave, setCanSave] = useState(false);
 
     useEffect(() => {
@@ -42,9 +43,11 @@ function Profile({loggedIn, onProfileEdit, onSignOut}) {
             .then(() => {
                 setEditing(false);
                 setShowError(false);
+                setShowSuccess(true);
             })
             .catch(() => {
                 setShowError(true);
+                setShowSuccess(false);
             });
     }
 
@@ -82,6 +85,7 @@ function Profile({loggedIn, onProfileEdit, onSignOut}) {
                                 </div>
                             ) : (
                                 <div className="profile__actions">
+                                    <p className="profile__success">{showSuccess ? PROFILE_EDIT_SUCCESS : ''}</p>
                                     <button className="profile__button-edit" onClick={handleEditClick}>Редактировать</button>
                                     <button type="button" className="profile__exit" onClick={onSignOut}>
                                         Выйти из аккаунта

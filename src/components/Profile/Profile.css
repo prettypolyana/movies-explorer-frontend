@@ -89,6 +89,17 @@
     margin-bottom: 0;
 }
 
+.profile__success {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    color: #169651;
+    margin: 0 0 16px 0;
+}
+
 .profile__button-save {
     width: 410px;
     height: 45px;

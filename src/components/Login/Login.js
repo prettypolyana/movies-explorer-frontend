@@ -1,14 +1,22 @@
+import {useEffect} from 'react';
+
 import './Login.css'
 import AuthForm from '../AuthForm/AuthForm';
 import {useFormWithValidation} from "../../utils/hooks";
 
-function Login({onLogin}) {
+function Login({onLogin, errorMessage, onLeave}) {
     const { values, errors, isValid, handleChange } = useFormWithValidation();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         onLogin(values.email, values.password);
     };
+
+    useEffect(() => {
+        return () => {
+            onLeave();
+        }
+    }, []);
 
     return (
         <AuthForm
@@ -19,6 +27,7 @@ function Login({onLogin}) {
             formSublink="/signup"
             formSublinkText="Регистрация"
             isValid={isValid}
+            errorMessage={errorMessage}
         >
             <fieldset className="auth-form__input-field">
                 <label htmlFor="email" className="auth-form__input-label">E-mail</label>
