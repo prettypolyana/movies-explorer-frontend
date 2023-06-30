@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
-import {PROFILE_EDIT_ERROR, PROFILE_EDIT_SUCCESS} from '../../utils/constants';
+import {PROFILE_EDIT_ERROR, PROFILE_EDIT_SUCCESS, EMAIL_PATTERN} from '../../utils/constants';
 
 import './Profile.css'
 import '../App/App.css';
@@ -71,7 +71,7 @@ function Profile({loggedIn, onProfileEdit, onSignOut, errorMessage, successMessa
                                 <p className="profile__item-label">E-mail</p>
                                 {
                                     editing
-                                    ? <input type="text" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$" name="email" className="profile__input profile__border" required value={values.email || ''} placeholder="E-mail" onChange={handleChange} />
+                                    ? <input type="text" pattern={EMAIL_PATTERN} name="email" className="profile__input profile__border" required value={values.email || ''} placeholder="E-mail" onChange={handleChange} />
                                     : <p className="profile__item-value">{currentUserContext?.email || ''}</p>
                                 }
                             </div>

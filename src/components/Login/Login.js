@@ -4,6 +4,8 @@ import './Login.css'
 import AuthForm from '../AuthForm/AuthForm';
 import {useFormWithValidation} from "../../utils/hooks";
 
+import {EMAIL_PATTERN} from '../../utils/constants';
+
 function Login({onLogin, errorMessage, onLeave}) {
     const { values, errors, isValid, handleChange } = useFormWithValidation();
 
@@ -31,7 +33,7 @@ function Login({onLogin, errorMessage, onLeave}) {
         >
             <fieldset className="auth-form__input-field">
                 <label htmlFor="email" className="auth-form__input-label">E-mail</label>
-                <input type="text" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$" name="email" className={`auth-form__input ${errors.email ? 'auth-form__input_invalid' : ''}`} required onChange={handleChange} />
+                <input type="text" pattern={EMAIL_PATTERN} name="email" className={`auth-form__input ${errors.email ? 'auth-form__input_invalid' : ''}`} required onChange={handleChange} />
                 <span className="auth-form__input-error">{errors.email}</span>
             </fieldset>
             <fieldset className="auth-form__input-field">

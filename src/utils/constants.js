@@ -23,6 +23,8 @@ export const MOVIES_TO_SHOW_COUNT_SMALL_SCREEN = 5;
 export const MOVIES_TO_ADD_COUNT_LARGE_SCREEN = 3;
 export const MOVIES_TO_ADD_COUNT_MEDIUM_SCREEN = 2;
 
+export const EMAIL_PATTERN = '^(?=.{1,60}$)\S+@(?:[\w-]+\.)+[\w-]{2,5}$';
+
 export const paths = {
   main: "/",
   movies: "/movies",
