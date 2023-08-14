@@ -30,7 +30,3 @@ Front-end для сервиса поиска и хранения фильмов.
 ## Ссылки:
 
 [Ссылка на макет](https://disk.yandex.ru/d/G8xiequRIbe6Hg)
-
-[Ссылка на фронтенд](https://polyana.movies-explorer.nomoredomains.work)
-
-[Ссылка на бэкенд](https://api.pln.movies-explorer.nomoredomains.work)
