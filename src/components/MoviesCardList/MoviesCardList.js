@@ -3,13 +3,13 @@ import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
 
-function MoviesCardList({movies}) {
+function MoviesCardList({movies, onLike, onUnlike, isSaved}) {
     return (
         <section className="movies-cards">
             <ul className="movies-cards__list">
                 {
                     movies.map((movie) => (
-                        <MoviesCard poster={movie.poster} title={movie.title} duration={movie.duration} liked={movie.liked} saved={movie.saved}/>
+                        <MoviesCard onLike={onLike} onUnlike={onUnlike} movie={movie} key={movie.id} liked={movie.liked} isSaved={isSaved}/>
                     ))
                 }
             </ul>

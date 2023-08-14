@@ -89,6 +89,17 @@
     margin-bottom: 0;
 }
 
+.profile__success {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    color: #169651;
+    margin: 0 0 16px 0;
+}
+
 .profile__button-save {
     width: 410px;
     height: 45px;
@@ -113,6 +124,10 @@
 .profile__button-save_disabled {
     background: #F8F8F8;
     color: #C2C2C2;
+}
+
+.profile__button-save_disabled:hover {
+    opacity: 1;
 }
 
 .profile__button-edit {

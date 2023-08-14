@@ -10,6 +10,7 @@
     display: block;
     width: 364px;
     height: 203px;
+    object-fit: cover;
 }
 
 .movies__container {

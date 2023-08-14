@@ -89,10 +89,25 @@
     padding: 0;
     border-radius: 3px;
     letter-spacing: 0.6px;
-    margin-top: 69px;
+    margin-top: 16px;
     margin-bottom: 20px;
     border: none;
     cursor: pointer;
+}
+
+.auth-form__button_disabled {
+    background-color: #d1cece;
+    pointer-events: none;
+}
+
+.auth-form__error {
+    margin: 36px 0 0 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FF4062;
 }
 
 .auth-form__subtext {

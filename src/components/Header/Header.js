@@ -1,30 +1,28 @@
-import { Link } from "react-router-dom";
-import React, { useContext } from "react";
-import {CurrentUserContext} from "../../contexts/CurrentUserContext";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../images/logo-header.svg";
 
 import "./Header.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
-function Header() {
-    const user = useContext(CurrentUserContext);
-
+function Header({loggedIn}) {
+    const location = useLocation();
+    
     return (
         <>
-            <header className={`header ${user ? 'header_logged-in' : ''}`}>
+            <header className={`header ${loggedIn ? 'header_logged-in' : ''}`}>
                 <Link to="/" className="header__logo">
                     <img className="header__logo-img" alt="Логотип" src={logo}/>
                 </Link>
                 {
-                    user ? (
+                    loggedIn ? (
                         <>
                             <nav className="header__menu">
                                 <ul className="header__menu-items">
                                     <li className="header__menu-item">
-                                        <Link className="header__menu-item-link header__menu-item-link_main" to="/movies">Фильмы</Link>
+                                        <Link className={`header__menu-item-link ${location.pathname === '/movies' ? 'header__menu-item-link_main' : ''}`} to="/movies">Фильмы</Link>
                                     </li>
                                     <li className="header__menu-item">
-                                        <Link className="header__menu-item-link" to="/saved-movies">Сохранённые фильмы</Link>
+                                        <Link className={`header__menu-item-link ${location.pathname === '/saved-movies' ? 'header__menu-item-link_main' : ''}`} to="/saved-movies">Сохранённые фильмы</Link>
                                     </li>
                                 </ul>
                             </nav>
@@ -43,7 +41,7 @@ function Header() {
                 }
             </header>
             {
-                user ? (
+                loggedIn ? (
                     <BurgerMenu />
                 ) : ''
             }

@@ -3,7 +3,7 @@ import student from '../../images/student.jpg';
 
 function AboutMe() {
     return (
-        <section className="student">
+        <section className="student" id="aboutMe">
             <h2 className="student__text">Студент</h2>
             <div className="student__profile">
                 <div className="student__texts">
